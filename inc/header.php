@@ -411,7 +411,7 @@
 					<span>Scale</span>
 					<input class="scale" type="range" step="0.01" min="-2" max="4" value="1">
 
-					<button class="white-btn">Reset</button>
+					<button title="Bring to the original position" class="white-btn">Reset</button>
 				</p>
 
 
@@ -493,7 +493,7 @@
 								<span>Scale</span>
 								<input class="scale" type="range" step="0.01" min="-2" max="4" value="' . $scale . '">
 
-								<button class="white-btn">Reset</button>
+								<button title="Bring to the original position" class="white-btn">Reset</button>
 							</p>
 
 							<p class="inputs">
@@ -1244,16 +1244,21 @@
 	// Действия в окне панели управления (УЧАСТНИКИ ГРУППЫ)
 	// #############################################
 
-	// Изменение фотографии при введении новой ссылки на странице ред. новостей
+	// Изменение фотографии при введении новой ссылки на странице ред. участников
 	$('.editMembers input[name="image"]').on('input keyup', function () {
 		let id = ($(this).parent().parent().attr("id")).replace('id_', '');
 		updatePhoto('.editMembers', id, this.value);
 		// 
 	})
-	// Сообщение о том, что изменения не сохранены на странице ред. новостей
+	// Сообщение о том, что изменения не сохранены на странице ред. участников
 	$('.editMembers input').on('input keyup', function () {
 		let id = ($(this).parent().parent().attr("id")).replace('id_', '');
-		showSaveMessage('.editMembers', id);
+		
+		inputType = $(this).attr("type");
+		console.log(inputType)
+		if (  inputType != "file" ) {
+			showSaveMessage('.editMembers', id);
+		}
 	})
 	$('.editMembers .inputsRange button').click(function () {
 		let id = ($(this).parent().parent().attr("id")).replace('id_', '');
