@@ -1,0 +1,367 @@
+.image {
+	transition: 1s margin-top;
+	position: relative;
+	width: 100%;
+	margin-top: 154px;
+	height: calc(100vh - 154px);
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	
+	opacity: .8;
+
+	/*border: 1px solid #fff;*/
+}
+.image img {
+	position: relative;
+	min-width: 100%;
+	min-height: 100%;
+}
+.image::after {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 200px;
+	left: 0;
+	bottom: 0;
+	background: linear-gradient(to top, rgba(0, 0, 0, .5), transparent);
+}
+.news {
+	position: relative;
+	overflow: hidden;
+
+	/*border: 1px solid #fff;*/
+}
+.news .news-list {
+	transition: .5s;
+	position: relative;
+	white-space: nowrap;
+	left: 0;
+
+	/*border: 1px solid #fff;*/
+}
+.news .block {
+	width: 780px;
+	position: relative;
+	margin: 0 20px;
+	cursor: pointer;
+	height: 600px;
+	display: inline-block;
+	vertical-align: top;
+	cursor: pointer;
+
+	/*border: 1px solid white;*/
+}
+.news .img {
+	transition: .5s;
+	top: 0;
+	left: 0;
+	position: relative;
+	width: 95%;
+	height: 410px;
+	overflow: hidden;
+	/*opacity: .6;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/*border: 1px solid #fff;*/
+}
+.news .img::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
+}
+.news .show .img {
+	opacity: .5;
+}
+.news .show .img img {
+	transform: scale(1.05);
+}
+.news .img img {
+	transition: 2s;
+	position: relative;
+	min-width: 100%;
+	min-height: 100%;
+	/*border: 1px solid #fff;*/
+}
+.news .block:hover .img img {
+	transform: scale(1.05);
+}
+.news .date {
+	text-transform: uppercase;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	height: 100px;
+	background: linear-gradient(to left, #2C2C2C, #181818);
+	flex-direction: column;
+	/*top: 0;*/
+	transform: translate(10%, -90%);
+	padding-top: 7px;
+
+	/*border: 1px solid white;*/
+}
+.news .date * {
+	user-select: none;
+}
+.news .date p {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*background-color: skyblue;*/
+}
+.news .date p:nth-child(1) {
+	font-size: 24px;
+	line-height: 20px;
+}
+.news .date p:nth-child(2) {
+	font-size: 48px;
+	line-height: 48px;
+}
+.news .text {
+	transition: .5s;
+	font-weight: 300;
+	position: relative;
+	top: -190px;
+	left: 120px;
+	max-width: 640px;
+	height: 230px;
+	overflow: hidden;
+	white-space: normal;
+	/*border: 1px solid white;*/
+}
+.news .text::after {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 55px;
+	background: linear-gradient(to top, #050505 15%, transparent 100%);
+	bottom: 0;
+	/*border: 1px solid white;*/
+}
+.news .text h1 {
+	font-weight: 300;
+	font-size: 48px;
+	line-height: 50px;
+	margin-bottom: 20px;
+}
+.news .text p {
+	font-weight: 300;
+	font-size: 18px;
+}
+.news .block.show .text {
+	/*position: absolute;*/
+	top: -500px;
+	height: 520px;
+}
+
+.news button {
+	transition: .5s;
+	position: absolute;
+	min-width: 60px;
+	height: 60px;
+	/*background: url("img/arrow.svg") no-repeat;*/
+	background-color: unset;
+	border: unset;
+	outline: unset;
+	z-index: 2;
+	top: 30%;
+	cursor: pointer;
+	box-sizing: unset;
+	margin: 0 40px;
+
+	/*border: 1px solid #fff;*/
+}
+.news button:hover {
+	padding: 0 20px;
+	margin: 0 0px;
+}
+.news button:nth-child(1) {
+	left: 0px;
+}
+
+.news button:nth-child(2) {
+	right: 0px;
+}
+.news button:nth-child(1) img {
+	transform: rotate(180deg);
+}
+
+
+.albums {
+	position: relative;
+	overflow: hidden;
+}
+
+.albums-list {
+	transition: .5s;
+	position: relative;
+	white-space: nowrap;
+	left: 0;
+}
+.center .albums-list {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	white-space: nowrap;
+}
+.center button {
+	display: none;
+}
+.albums .block {
+	position: relative;
+	min-width: 400px;
+	height: 400px;
+	width: 400px;
+	min-height: 400px;
+	display: inline-block;
+	margin: 0 30px;
+
+	/*border: 1px solid #fff;*/
+	border: 1px solid rgba(255, 255, 255, .15);
+}
+.albums .img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.albums .img img {
+	position: relative;
+	width: 100%;
+	/*min-height: 100%;*/
+}
+.albums .links {
+	transition: .5s;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+	bottom: 0;
+	opacity: 0;
+}
+.albums .block:hover .links {
+	opacity: 1;
+	bottom: 10px;
+}
+.albums .links ul li {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin: 0 5px;
+}
+.albums .links ul li a {
+	cursor: pointer;
+}
+.apple-music {
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, .15);
+}
+.albums .links ul li img {
+	position: relative;
+	width: 100%;
+	user-select: none;
+}
+.albums button {
+	transition: .5s;
+	position: absolute;
+	min-width: 60px;
+	height: 60px;
+	/*background: url("img/arrow.svg") no-repeat;*/
+	background-color: unset;
+	border: unset;
+	outline: unset;
+	z-index: 2;
+	top: 30%;
+	cursor: pointer;
+	box-sizing: unset;
+	margin: 0 40px;
+
+	/*border: 1px solid #fff;*/
+}
+.albums button:hover {
+	padding: 0 20px;
+	margin: 0 0px;
+}
+.albums button:nth-child(1) {
+	left: 0px;
+}
+
+.albums button:nth-child(2) {
+	right: 0px;
+}
+.albums button:nth-child(1) img {
+	transform: rotate(180deg);
+}
+
+
+
+
+
+
+
+.members {
+	position: relative;
+	/*display: flex;*/
+	/*justify-content: space-between;*/
+	/*justify-content: center;*/
+}
+.members .block {
+	position: relative;
+	width: 420px;
+	height: 630px;
+	display: inline-block;
+	margin: 0 20px 60px 20px;
+	vertical-align: top;
+	/*background-color: #fff;*/
+
+	/*border: 1px solid #fff;*/
+}
+.members .block:hover p {
+	opacity: 1;
+}
+.members .block:hover .img {
+	opacity: .6;
+}
+.members .img {
+	transition: .5s;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	z-index: 1;
+
+	/*border: 1px solid #fff;*/
+}
+.members .img img {
+	position: relative;
+	/*min-width: 100%;*/
+	height: 100%;
+}
+.members p {
+	z-index: 2;
+	font-size: 32px;	
+}
+.members p {
+	position: absolute;
+	transition: .5s;
+	margin-top: 30px;
+	opacity: 0;
+	
+	left: 50%;
+	transform: translate(-50%);
+}
+.members h2 {
+	position: relative;
+	/*width: 100%;*/
+	text-align: center;
+	font-weight: 400;
+	font-size: 32px;
+}

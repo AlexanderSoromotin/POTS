@@ -1,0 +1,123 @@
+main.service *::selection {
+	background-color: rgba(0, 0, 0, .2);
+}
+main.service .linkBackToMainPage {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	filter: invert(100%);
+}
+main.service {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../assets/img/space3.jpg") no-repeat;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+main.service .form {
+	position: absolute;
+	width: 300px;
+	padding: 30px;
+	/*background-color: rgba(255, 255, 255, 0.2);*/
+	background-color: rgba(255, 255, 255, 1);
+	/*color: #fff;*/
+	color: #000;
+}
+.service .form form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.service .form h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.service .form h3, h4 {
+	/*margin-top: 20px;*/
+	font-weight: 400;
+}
+.service .form h4 {
+	font-size: 14px;
+}
+.service .form b {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.service .form input {
+	width: 100%;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	margin-bottom: 20px;
+	border: unset;
+	outline: unset;
+	background-color: unset;
+	/*border-bottom: 1px solid #fff;*/
+	border-bottom: 1px solid #000;
+	/*color: #fff;*/
+	color: #000;
+	font-size: 16px;
+}
+
+.service .form input::placeholder {
+	/*color: rgba(255, 255, 255, .5);*/
+	color: rgba(0, 0, 0, .5);
+}
+.service .form p {
+	font-size: 12px;
+	height: 54px;
+	padding: 10px 0 5px 0;
+	color: #F64447;
+	/*background-color: rgba(0, 0, 0, .4);*/
+	margin-top: -20px;
+}
+.service .form button {
+	transition: .3s;
+	position: relative;
+	background-color: transparent;
+	border: 1px solid #000;
+	padding: 8px 0;
+	cursor: pointer;
+	font-size: 16px;
+}
+.service .form button:hover {
+	background-color: #000;
+	color: #fff;
+}
+.form_show {
+	animation: .3s form_show forwards;
+	animation-timing-function: ease-in-out;;
+}
+@keyframes form_show {
+	0% {
+		transform: perspective(600px) rotateY(90deg) ;
+		opacity: 0;
+	}
+	100% {
+		transform: perspective(600px) rotateY(0deg);
+		opacity: 1;
+	}
+}
+
+.form_hidden {
+	animation: .3s form_hidden forwards;
+	animation-timing-function: ease-in-out;;
+}
+@keyframes form_hidden {
+	0% {
+		transform: perspective(600px) rotateY(0deg);
+		opacity: 1;
+
+	}
+	100% {
+		transform: perspective(600px) rotateY(-90deg);
+		opacity: 0;
+
+	}
+}

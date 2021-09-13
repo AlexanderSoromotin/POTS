@@ -1,0 +1,128 @@
+.background {
+	transition: .3s;
+	position: fixed;
+	/*width: 100vw;*/
+	overflow: hidden;
+	/*background: url("https://sun9-82.userapi.com/impg/wHqA8YbyBGt58eLM4Frhb9mZHW6cI_hKg_KzEg/siLAlDbCyX0.jpg?size=2560x1707&quality=96&sign=bbb51acdb64724b99b87ecfa1dce1363&type=album");*/
+	width: 100%;
+	height: calc(100vh - 152px);
+	/*background-size: cover;*/
+	display: flex;
+	justify-content: center;
+}
+.background .image-back {
+	position: absolute;
+	transition: .3s;
+	/*position: relative;*/
+	width: 100%;
+	filter: blur(40px);
+	vertical-align: top;
+}
+.background .image-front {
+	position: absolute;
+	transition: .3s;
+	position: relative;
+	height: 130%;
+	top: 0px;
+}
+.container-1 {
+	position: relative;
+	margin-top: 200px;
+	color: #fff;
+	text-align: left;
+	width: 1000px;
+}
+.container-1 h1 {
+	font-size: 50px;
+	text-transform: uppercase;
+}
+.text {
+	position: relative;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	color: #fff;
+	padding: 10px;
+	text-align: left;
+	display: flex;
+	justify-content: center;
+	border-bottom: solid 20px rgba(0, 0, 0, .6);
+}
+.container-2 {
+	width: 1000px;
+	/*background-color: rgba(0, 0, 0, 0.5);*/
+}
+/*Отступы абзаца*/
+.text p::before {
+	position: relative;
+	display: inline-block;
+	content: " ";
+	width: 0px; /*ширина отступа*/
+	margin-right: -4px;
+	background-color: #fff;
+	/*margin-left: 20px;*/
+}
+.text p {
+	margin-bottom: 15px;
+}
+
+.members {
+	position: relative;
+	/*display: flex;*/
+	/*justify-content: space-between;*/
+	/*justify-content: center;*/
+	background-color: #000;
+}
+.members .block {
+	position: relative;
+	width: 420px;
+	height: 630px;
+	display: inline-block;
+	margin: 0 20px 60px 20px;
+	vertical-align: top;
+	/*background-color: #fff;*/
+
+	/*border: 1px solid #fff;*/
+}
+.members .block:hover p {
+	opacity: 1;
+}
+.members .block:hover .img {
+	opacity: .6;
+}
+.members .img {
+	transition: .5s;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	z-index: 1;
+
+	/*border: 1px solid #fff;*/
+}
+.members .img img {
+	position: relative;
+	/*min-width: 100%;*/
+	height: 100%;
+}
+.members p {
+	z-index: 2;
+	font-size: 32px;	
+}
+.members p {
+	position: absolute;
+	transition: .5s;
+	margin-top: 30px;
+	opacity: 0;
+	
+	left: 50%;
+	transform: translate(-50%);
+}
+.members h2 {
+	position: relative;
+	/*width: 100%;*/
+	text-align: center;
+	font-weight: 400;
+	font-size: 32px;
+}
