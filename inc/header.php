@@ -1288,7 +1288,7 @@
 
 	// AJAX запрос
 	$.ajax({
-		url : '<?= $link?>/inc/uploadPhotoMembers.php',
+		url : '<?= $link?>/inc/uploadFiles.php',
 		type : 'POST',
 		data : data,
 		cache : false,
@@ -1300,7 +1300,7 @@
 		// функция успешного ответа сервера
 		success : function(){
 				console.log("thiss id: " + id);
-			   var fileName = $(".editMembers #id_ " + id + " #bandMembers_photo").val().split('/').pop().split('\\').pop();
+			   var fileName = $(".editMembers #id_" + id + " #bandMembers_photo").val().split('/').pop().split('\\').pop();
 			    console.log(fileName);
 			    updatePhoto('.editMembers', id, "<?= $link ?>/uploads/" + fileName);
 			    $('.editMembers .inputs .edit-member-photo').val("<?= $link?>/uploads/" + fileName);
