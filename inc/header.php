@@ -422,11 +422,20 @@
 					<span>Role</span>
 					<input type="" name="" title="Role" placeholder="Role" value="" class="edit-member-role">
 					
-					<span>Photo</span>
-					<input type="" name="image" title="Link to photo" placeholder="Link to photo" value="" class="edit-member-photo">
-
 					<span>Display index</span>
 					<input type="" name="" title="Display order, the lower - the first" placeholder="Display index" value="" class="edit-member-index">
+
+					<br>
+
+
+					<span>Photo</span>
+					<input type="" name="image" title="Link to photo" placeholder="Link to photo" value="" class="edit-member-photo">
+					<br>
+					<span>Upload photo</span>
+					<input id="bandMembers_photo" type="file" id="file" name="file" multiple>
+					<button class="white-btn" type="button">Upoad photo</button>
+
+
 
 				</p>
 
@@ -493,12 +502,16 @@
 								
 								<span>Role</span>
 								<input type="" name="" title="Role" placeholder="Role" value="' . $member_role . '" class="edit-member-role">
-								
-								<span>Photo</span>
-								<input type="" name="image" title="Link to photo" placeholder="Link to photo" value="' . $member_photo . '" class="edit-member-photo">
 
 								<span>Display index</span>
 								<input type="" name="" title="Display order, the lower - the first" placeholder="Display index" value="' . $member_index . '" class="edit-member-index">
+
+								<span>Photo</span>
+								<input type="" name="image" title="Link to photo" placeholder="Link to photo" value="' . $member_photo . '" class="edit-member-photo">
+								<br>
+								<span>Upload photo</span>
+								<input id="bandMembers_photo" type="file" id="file" name="file" multiple>
+								<button class="white-btn" type="button">Upoad photo</button>
 
 							</p>
 	
@@ -1246,6 +1259,55 @@
 		let id = ($(this).parent().parent().attr("id")).replace('id_', '');
 		showSaveMessage('.editMembers', id);
 	})
+
+	// Загрузка фото на сервер
+	var files;
+	$('#bandMembers_photo').on('change', function(){
+		files = this.files;
+	});
+	$('.editMembers .inputs button').on( 'click', function( event ){
+		id = $(this).parent().parent().attr("id").replace("id_", "");
+		console.log("this block id: " + id);
+
+		event.stopPropagation(); // остановка всех текущих JS событий
+		event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
+
+		// ничего не делаем если files пустой
+		if( typeof files == 'undefined' ) return;
+
+		// создадим объект данных формы
+		var data = new FormData();
+
+		// заполняем объект данных файлами в подходящем для отправки формате
+		$.each( files, function( key, value ){
+			data.append( key, value );
+		});
+
+		// добавим переменную для идентификации запроса
+		data.append( 'my_file_upload', 1 );
+
+	// AJAX запрос
+	$.ajax({
+		url : '<?= $link?>/inc/uploadPhotoMembers.php',
+		type : 'POST',
+		data : data,
+		cache : false,
+		dataType : 'json',
+		// отключаем обработку передаваемых данных, пусть передаются как есть
+		processData : false,
+		// отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
+		contentType : false, 
+		// функция успешного ответа сервера
+		success : function(){
+				console.log("thiss id: " + id);
+			   var fileName = $(".editMembers #id_ " + id + " #bandMembers_photo").val().split('/').pop().split('\\').pop();
+			    console.log(fileName);
+			    updatePhoto('.editMembers', id, "<?= $link ?>/uploads/" + fileName);
+			    $('.editMembers .inputs .edit-member-photo').val("<?= $link?>/uploads/" + fileName);
+			}
+		});
+	});
+
 
 	// Сохранение участников
 	$('.edit-member-save').click(function () {

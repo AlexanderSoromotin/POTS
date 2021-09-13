@@ -521,13 +521,26 @@ footer p img {
 .editMembers .inputs {
 	flex-direction: column;
 	width: 300px;
+	position: relative;
+	display: flex;
 }
 .editMembers .inputs * {
 	margin: 2px;
+	position: relative;
 }
 .editMembers .inputs input {
 	margin-bottom: 10px;
 	margin-top: -3px;
+	width: 100%;
+}
+.editMembers .inputs form input {
+	width: 100%;
+}
+.editMembers .inputs button {
+	padding: 4px 0;
+	font-size: 14px;
+	width: 100%;
+	margin-top: -5px;
 }
 
 
@@ -553,6 +566,9 @@ footer p img {
 }
 .editMembers .img_date input {
 	margin: 2px;
+}
+.editMembers .div {
+	display: inline-block !important;
 }
 
 
