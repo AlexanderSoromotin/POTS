@@ -31,6 +31,9 @@ $('.header-logo').click(function () {
 $('.header-about').click(function () {
 	transitionHref('from-right-side', '<?= $link?>/about-us');
 })
+$('.header-home').click(function () {
+	transitionHref('from-right-side', '<?= $link?>');
+})
 
 
 </script>

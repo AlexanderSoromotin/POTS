@@ -15,6 +15,7 @@
 			<!-- <li class="header-news"><a href="<?= $link?>/">news</a></li> -->
 			<!-- <li class="header-albums"><a href="<?= $link?>">albums</a></li> -->
 			<!-- <li class="header-members"><a href="<?= $link?>"><a href="">band members</a></a></li> -->
+			<li class="header-home"><a>home</a></li>
 			<li class="header-photos"><a>photos</a></li>
 			<li class="header-lyrics"><a>lyrics</a></li>
 			<li class="header-contact"><a>contact us</a></li>
@@ -57,7 +58,7 @@
 					<center>
 						<a href="<?= $link?>/inc/logout.php"><button>Logout</button></a>
 					</center>
-
+					<p style="margin-bottom: 1px; color: rgba(0, 0, 0, .5); margin-top: 5px;">Email: <?= $user_email?></p>
 					<?php
 						if ($user_status == "Admin") :
 					?>
@@ -65,6 +66,8 @@
 					<?php
 						endif;
 					?>
+
+
 				<?php
 					else :
 				?>
@@ -260,7 +263,7 @@
 			<div class="example">
 				<p class="ex_id">ID</p>
 				<p class="ex_img">Image</p>
-				<p class="ex_title_text">Title | Image | Date</p>
+				<p class="ex_title_text">Title | Image</p>
 				<p class="ex_links">Links</p>
 				<p class="ex_links">Links</p>
 				<p class="ex_control">Action</p>
@@ -274,7 +277,8 @@
 				<p class="title_text">
 					<input type="" name="" title="Title" placeholder="Title" value="" class="edit-album-title">
 					<input type="" name="image" title="Link to img" placeholder="Link to img" value="" class="edit-album-image">
-					<input type="" name="" title="Date YYYY-MM-DD HH:MM:SS" placeholder="Date" value="" class="edit-album-date">
+					<!-- <input type="" name="" title="Date YYYY-MM-DD HH:MM:SS" placeholder="Date" value="" class="edit-album-date"> -->
+					<input class="inputUploads" type="file" name="file">
 					
 				</p>
 
@@ -305,7 +309,7 @@
 			<div class="example">
 				<p class="ex_id">ID</p>
 				<p class="ex_img">Image</p>
-				<p class="ex_title_text">Title | Image | Date</p>
+				<p class="ex_title_text">Title | Image</p>
 				<p class="ex_links">Links</p>
 				<p class="ex_links">Links</p>
 				<p class="ex_control">Action</p>
@@ -348,7 +352,8 @@
 							<p class="title_text">
 								<input type="" name="" title="Title" placeholder="Title" value="' . $album_title . '" class="edit-album-title">
 								<input type="" name="image" title="Link to img" placeholder="Link to img" value="' . $album_img . '" class="edit-album-image">
-								<input type="" name="" title="Date YYYY-MM-DD HH:MM:SS" placeholder="Date" value="' . $album_date . '" class="edit-album-date">
+								<!-- <input type="" name="" title="Date YYYY-MM-DD HH:MM:SS" placeholder="Date" value="' . $album_date . '" class="edit-album-date"> -->
+								<input class="inputUploads" type="file" name="file">
 								
 							</p>
 
@@ -409,7 +414,7 @@
 					<input class="vertical" type="range" min="-200" max="200" value="0">
 
 					<span>Scale</span>
-					<input class="scale" type="range" step="0.01" min="-2" max="4" value="1">
+					<input class="scale" type="range" step="0.01" min="0.2" max="4" value="1">
 
 					<button title="Bring to the original position" class="white-btn">Reset</button>
 				</p>
@@ -430,10 +435,14 @@
 
 					<span>Photo</span>
 					<input type="" name="image" title="Link to photo" placeholder="Link to photo" value="" class="edit-member-photo">
-					<br>
+					
+					
+
 					<span>Upload photo</span>
-					<input id="bandMembers_photo" type="file" id="file" name="file" multiple>
-					<button class="white-btn" type="button">Upoad photo</button>
+
+					<input class="inputUploads" type="file" name="file">
+
+					<!-- <button class="white-btn" type="button">Upoad photo</button> -->
 
 
 
@@ -491,7 +500,7 @@
 								<input class="vertical" type="range" min="-200" max="200" value="' . $vertical . '">
 
 								<span>Scale</span>
-								<input class="scale" type="range" step="0.01" min="-2" max="4" value="' . $scale . '">
+								<input class="scale" type="range" step="0.01" min="0.1" max="4" value="' . $scale . '">
 
 								<button title="Bring to the original position" class="white-btn">Reset</button>
 							</p>
@@ -505,13 +514,15 @@
 
 								<span>Display index</span>
 								<input type="" name="" title="Display order, the lower - the first" placeholder="Display index" value="' . $member_index . '" class="edit-member-index">
-
+								<br>
 								<span>Photo</span>
 								<input type="" name="image" title="Link to photo" placeholder="Link to photo" value="' . $member_photo . '" class="edit-member-photo">
-								<br>
+								
 								<span>Upload photo</span>
-								<input id="bandMembers_photo" type="file" id="file" name="file" multiple>
-								<button class="white-btn" type="button">Upoad photo</button>
+
+								<input class="inputUploads" type="file" name="file">
+
+								<!-- <button class="white-btn" type="button">Upoad photo</button> -->
 
 							</p>
 	
@@ -795,6 +806,7 @@
 						<p class="inputs">
 							<span>Wallpaper on main page</span>
 							<input type="" name="image" title="Image. This is displayed on the main page of the site" placeholder="Image" value="' . $sett_wallpaper . '" class="edit-settings-wallpaper">
+							<input class="inputUploads" type="file" name="file">
 
 							<span>Theme</span>
 							<br>
@@ -901,9 +913,60 @@
 		$('.editMembers #' + id + ' .inputsRange input:eq(2)').val(1);
 
 		$('.editMembers #' + id + ' .img img').css({"transform" : "scale(1)", "margin-top" : "0%", "margin-left" : "0%"});
-
-
 	})
+
+	function changeImageFromUpload (editPanelType, id, files) {
+		// var files;
+		// files = this.files;
+		// files = $('.inputUploads').prop('files')[0];
+
+		console.log("this block id: " + id);
+		showSaveMessage('.editMembers', id);
+		
+		console.log("this input (obj): ");
+		console.log($(".editMembers #id_" + id + " .inputUploads"))
+
+		// ничего не делаем если files пустой
+		console.log("typeof files: " + typeof files);
+		if( typeof files == 'undefined' ) return;
+
+		// создадим объект данных формы
+		var data = new FormData();
+
+		// заполняем объект данных файлами в подходящем для отправки формате
+		$.each( files, function( key, value ){
+			data.append( key, value );
+		});
+
+		// добавим переменную для идентификации запроса
+		data.append( 'my_file_upload', 1 );
+
+	// AJAX запрос
+		$.ajax({
+			url : '<?= $link?>/inc/uploadFiles.php',
+			type : 'POST',
+			data : data,
+			cache : false,
+			dataType : 'json',
+			// отключаем обработку передаваемых данных, пусть передаются как есть
+			processData : false,
+			// отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
+			contentType : false, 
+			// функция успешного ответа сервера
+			success : function( html ){
+				console.log("html from server: " + html);
+
+				console.log("this id: " + id);
+
+				var fileName = $(editPanelType + " #id_" + id + " .inputUploads").val().split('/').pop().split('\\').pop();
+
+				console.log("filename: " + fileName);
+
+				updatePhoto(editPanelType, id, "<?= $link ?>/uploads/" + fileName);
+			}
+		});
+		// return fileName;
+	}
 
 	
 
@@ -1131,6 +1194,19 @@
 		showSaveMessage('.editAlbums', id);
 	})
 
+	$('.editAlbums .inputUploads').on('change', function(){
+		var files;	
+		console.log('input is changed!')
+		files = this.files;
+		let id = ($(this).parent().parent().attr("id")).replace('id_', '');
+
+		fileName = $(".editAlbums #id_" + id + " .inputUploads").val().split('/').pop().split('\\').pop();
+
+		changeImageFromUpload('.editAlbums', id, files);
+
+		$('.editAlbums .title_text .edit-album-image').val("<?= $link?>/uploads/" + fileName);
+	});
+
 	// Сохранение альбомов
 	$('.edit-album-save').click(function () {
 		let id = $(this).parent().parent().attr("id").replace('id_', '');
@@ -1255,8 +1331,10 @@
 		let id = ($(this).parent().parent().attr("id")).replace('id_', '');
 		
 		inputType = $(this).attr("type");
-		console.log(inputType)
-		if (  inputType != "file" ) {
+		// console.log(inputType)
+
+		// inputType != "file"
+		if ( true ) {
 			showSaveMessage('.editMembers', id);
 		}
 	})
@@ -1266,51 +1344,70 @@
 	})
 
 	// Загрузка фото на сервер
-	var files;
-	$('#bandMembers_photo').on('change', function(){
+	
+	
+	$('.editMembers .inputUploads').on('change', function(){
+		var files;	
+		console.log('input is changed!')
 		files = this.files;
+		let id = ($(this).parent().parent().attr("id")).replace('id_', '');
+
+		fileName = $(".editMembers #id_" + id + " .inputUploads").val().split('/').pop().split('\\').pop();
+
+		changeImageFromUpload('.editMembers', id, files);
+
+		$('.editMembers .inputs .edit-member-photo').val("<?= $link?>/uploads/" + fileName);
 	});
+
 	$('.editMembers .inputs button').on( 'click', function( event ){
-		id = $(this).parent().parent().attr("id").replace("id_", "");
-		console.log("this block id: " + id);
+	// 	id = $(this).parent().parent().attr("id").replace("id_", "");
+	// 	console.log("this block id: " + id);
+	// 	showSaveMessage('.editMembers', id);
+		
+	// 	console.log("this input (obj): ");
+	// 	console.log($(".editMembers #id_" + id + " .inputUploads"))
 
-		event.stopPropagation(); // остановка всех текущих JS событий
-		event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
+	// 	// ничего не делаем если files пустой
+	// 	console.log("typeof files: " + typeof files);
+	// 	if( typeof files == 'undefined' ) return;
 
-		// ничего не делаем если files пустой
-		if( typeof files == 'undefined' ) return;
+	// 	// создадим объект данных формы
+	// 	var data = new FormData();
 
-		// создадим объект данных формы
-		var data = new FormData();
+	// 	// заполняем объект данных файлами в подходящем для отправки формате
+	// 	$.each( files, function( key, value ){
+	// 		data.append( key, value );
+	// 	});
 
-		// заполняем объект данных файлами в подходящем для отправки формате
-		$.each( files, function( key, value ){
-			data.append( key, value );
-		});
+	// 	// добавим переменную для идентификации запроса
+	// 	data.append( 'my_file_upload', 1 );
 
-		// добавим переменную для идентификации запроса
-		data.append( 'my_file_upload', 1 );
+	// // AJAX запрос
+	// 	$.ajax({
+	// 		url : '<?= $link?>/inc/uploadFiles.php',
+	// 		type : 'POST',
+	// 		data : data,
+	// 		cache : false,
+	// 		dataType : 'json',
+	// 		// отключаем обработку передаваемых данных, пусть передаются как есть
+	// 		processData : false,
+	// 		// отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
+	// 		contentType : false, 
+	// 		// функция успешного ответа сервера
+	// 		success : function( html ){
+	// 			console.log("html from server: " + html);
 
-	// AJAX запрос
-	$.ajax({
-		url : '<?= $link?>/inc/uploadFiles.php',
-		type : 'POST',
-		data : data,
-		cache : false,
-		dataType : 'json',
-		// отключаем обработку передаваемых данных, пусть передаются как есть
-		processData : false,
-		// отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
-		contentType : false, 
-		// функция успешного ответа сервера
-		success : function(){
-				console.log("thiss id: " + id);
-			   var fileName = $(".editMembers #id_" + id + " #bandMembers_photo").val().split('/').pop().split('\\').pop();
-			    console.log(fileName);
-			    updatePhoto('.editMembers', id, "<?= $link ?>/uploads/" + fileName);
-			    $('.editMembers .inputs .edit-member-photo').val("<?= $link?>/uploads/" + fileName);
-			}
-		});
+	// 			console.log("this id: " + id);
+
+	// 			var fileName = $(".editMembers #id_" + id + " .inputUploads").val().split('/').pop().split('\\').pop();
+
+	// 			console.log("filename: " + fileName);
+
+	// 			updatePhoto('.editMembers', id, "<?= $link ?>/uploads/" + fileName);
+	// 			$('.editMembers .inputs .edit-member-photo').val("<?= $link?>/uploads/" + fileName);
+	// 			files = "";
+	// 		}
+	// 	});
 	});
 
 
@@ -1584,6 +1681,20 @@
 		updatePhoto('.editSite', id, this.value);
 		// 
 	})
+
+	$('.editSite .inputUploads').on('change', function(){
+		var files;	
+		console.log('input is changed!')
+		files = this.files;
+		let id = ($(this).parent().parent().attr("id")).replace('id_', '');
+
+		fileName = $(".editSite #id_" + id + " .inputUploads").val().split('/').pop().split('\\').pop();
+
+		changeImageFromUpload('.editSite', id, files);
+
+		$('.editSite .edit-settings-wallpaper').val("<?= $link?>/uploads/" + fileName);
+	});
+
 	// Сохранение настроек сайта
 	$('.edit-settings-save').click(function () {
 		// console.log(id);

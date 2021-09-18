@@ -3,6 +3,7 @@
 	position: relative;
 	width: 100%;
 	margin-top: 154px;
+	min-height: 800px;
 	height: calc(100vh - 154px);
 	overflow: hidden;
 	display: flex;
@@ -318,6 +319,7 @@
 	display: inline-block;
 	margin: 0 20px 60px 20px;
 	vertical-align: top;
+	background-color: #000;
 	/*background-color: #fff;*/
 
 	/*border: 1px solid #fff;*/
