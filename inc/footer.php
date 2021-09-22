@@ -1,6 +1,5 @@
 
-<h1 class="title">a little about us</h1>
-
+<!-- <h1 class="title"></h1> -->
 <?php
 
 $footer = mysqli_fetch_assoc( mysqli_query($connection, "SELECT * FROM `settings`") );
@@ -9,16 +8,16 @@ $footer = mysqli_fetch_assoc( mysqli_query($connection, "SELECT * FROM `settings
 <footer>
 	<center>
 		<span>
-			<h1 class="header-logo" style="cursor: default; ">Princess Of The Space</h1>
+			<h1 class="header-logo" style="cursor: default; ">Princes Of The Space</h1>
 			<h2><?= $footer['email'] ?></h2>
 		</span>
 		<br>
 		<p>
-			<a href="<?= $footer['vk'] ?>"><img src="<?= $link?>/assets/img/vk.svg"></a>
-			<a href="<?= $footer['facebook'] ?>"><img src="<?= $link?>/assets/img/fb.svg"></a>
-			<a href="<?= $footer['instagram'] ?>"><img src="<?= $link?>/assets/img/inst.svg"></a>
-			<a href="<?= $footer['youtube'] ?>"><img src="<?= $link?>/assets/img/yt.svg"></a>
-			<a href="<?= $footer['twitter'] ?>"><img src="<?= $link?>/assets/img/tw.svg"></a>
+			<a target="_blink" href="<?= $footer['vk'] ?>"><img src="<?= $link?>/assets/img/vk.svg"></a>
+			<a target="_blink" href="<?= $footer['facebook'] ?>"><img src="<?= $link?>/assets/img/fb.svg"></a>
+			<a target="_blink" href="<?= $footer['instagram'] ?>"><img src="<?= $link?>/assets/img/inst.svg"></a>
+			<a target="_blink" href="<?= $footer['youtube'] ?>"><img src="<?= $link?>/assets/img/yt.svg"></a>
+			<a target="_blink" href="<?= $footer['twitter'] ?>"><img src="<?= $link?>/assets/img/tw.svg"></a>
 			
 		</p>
 	</center>

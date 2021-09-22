@@ -1,14 +1,23 @@
 .background {
-	transition: .3s;
+	transition: .4s;
 	position: fixed;
 	/*width: 100vw;*/
 	overflow: hidden;
 	/*background: url("https://sun9-82.userapi.com/impg/wHqA8YbyBGt58eLM4Frhb9mZHW6cI_hKg_KzEg/siLAlDbCyX0.jpg?size=2560x1707&quality=96&sign=bbb51acdb64724b99b87ecfa1dce1363&type=album");*/
 	width: 100%;
-	height: calc(100vh - 152px);
+	/*height: calc(100vh - 152px);*/
+	height: 100vh;
 	/*background-size: cover;*/
 	display: flex;
 	justify-content: center;
+}
+.background::before {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: '';
+	background-color: rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
 .background .image-back {
 	position: absolute;
@@ -38,7 +47,7 @@
 }
 .text {
 	position: relative;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.7);
 	width: 100%;
 	color: #fff;
 	padding: 10px;
@@ -70,7 +79,8 @@
 	/*display: flex;*/
 	/*justify-content: space-between;*/
 	/*justify-content: center;*/
-	background-color: #000;
+	/*background-color: #000;*/
+	background-color: #050505;
 }
 .members .block {
 	position: relative;
@@ -82,6 +92,7 @@
 	/*background-color: #fff;*/
 
 	/*border: 1px solid #fff;*/
+	color: #fff;
 }
 .members .block:hover p {
 	opacity: 1;

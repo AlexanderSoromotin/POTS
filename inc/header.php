@@ -16,7 +16,7 @@
 			<!-- <li class="header-albums"><a href="<?= $link?>">albums</a></li> -->
 			<!-- <li class="header-members"><a href="<?= $link?>"><a href="">band members</a></a></li> -->
 			<li class="header-home"><a>home</a></li>
-			<li class="header-photos"><a>photos</a></li>
+			<!-- <li class="header-photos"><a>photos</a></li> -->
 			<li class="header-lyrics"><a>lyrics</a></li>
 			<li class="header-contact"><a>contact us</a></li>
 			<li class="header-about"><a>about us</a></li>
@@ -24,7 +24,8 @@
 	</center>
 	<?php
 		// Только у админов появляется меню
-		if ($user_status == "Admin") :
+		 // $user_status == "Admin"
+		if (true) :
 	?>
 
 		<div class="profile">
@@ -36,12 +37,23 @@
 					if ($user_status) :
 				?>
 
-					<h3>Hello, <?= $user_name?>!</h3>
+					<h3><?= $user_name?></h3>
+					<p style="text-align: center;margin-bottom: 1px; color: rgba(0, 0, 0, .5); margin-top: 1px;">Email: <?= $user_email?></p>
 
 					<?php
 						if ($user_status == "Admin") :
 					?>
-						<br>
+						<br><br>
+						<p>General</p>
+						<li class="none">My profile</li>
+						<li class="none">Upcoming concerts</li>
+						<li class="none">Official merch</li>
+						<!-- <li class="">Edit my profile</li> -->
+						<br><br>
+						<p>Support</p>
+						<li class="none">Support</li>
+						<li class="none">Reviews</li>
+						<br><br>	
 						<p>Edit content</p>
 						<li class="edit_news">Edit news</li>
 						<li class="edit_albums">Edit albums</li>
@@ -52,13 +64,33 @@
 						<li class="edit_users">Edit users</li>
 						<li class="site_settings">Site settings</li>
 					<?php
+						// endif;
+						else:
+					?>
+						<!-- Пользователь - не админ -->
+						<br>
+						<p>General</p>
+						<li class="none">My profile</li>
+						<li class="none">Upcoming concerts</li>
+						<li class="none">Official merch</li>
+						<!-- <li class="">Edit my profile</li> -->
+						<br><br>
+						<p>Support</p>
+						<li class="none">Support</li>
+						<li class="none">Reviews</li>
+						<br><br>
+						
+					<?php 
 						endif;
 					?>
 
+
+					<br><br><br>
+					
 					<center>
 						<a href="<?= $link?>/inc/logout.php"><button>Logout</button></a>
 					</center>
-					<p style="margin-bottom: 1px; color: rgba(0, 0, 0, .5); margin-top: 5px;">Email: <?= $user_email?></p>
+					
 					<?php
 						if ($user_status == "Admin") :
 					?>
@@ -70,9 +102,14 @@
 
 				<?php
 					else :
-				?>
+				?>	
+					<h4>
+						Hello, a personal profile on our website will allow you to track upcoming concerts, as well as buy tickets and merchandise.
+					</h4>
+					<br>
 					<center>
-						<a href="<?= $link?>/service"><button>Log in</button></a>
+						<a class="login_button" href="<?= $link?>/service"><button>Log in</button></a>
+						<a class="login_button" href="<?= $link?>/service"><button>Sign up</button></a>
 					</center>
 				<?php
 					endif;
@@ -143,8 +180,8 @@
 			<div class="example">
 				<p class="ex_id">ID</p>
 				<p class="ex_img">Image</p>
-				<p class="ex_link_title">Link and title</p>
-				<p class="ex_text">Text</p>
+				<p class="ex_link_title">(Link to | upload) Image</p>
+				<p class="ex_text">Tile and text</p>
 				<p class="ex_date">Date</p>
 				<p class="ex_control">Action</p>
 			</div>
@@ -156,11 +193,13 @@
 					<p class="img">
 						<img src="' .  $news_img . '">
 					</p>
-					<p class="link_title">
+					<p class="link">
 						<input type="" name="image" title="Link to photo" placeholder="Link to photo" value="" class="edit-news-image">
-						<textarea title="Title" placeholder="Title" class="edit-news-title"></textarea>
+						<!-- <textarea title="Title" placeholder="Title" class="edit-news-title"></textarea> -->
+						<input class="inputUploads" type="file" name="file">
 					</p>
-					<p class="text">
+					<p class="title_text">
+						<textarea title="Title" placeholder="Title" class="edit-news-title"></textarea>
 						<textarea placeholder="Text" class="edit-news-text"></textarea>
 					</p>
 					<p class="date">
@@ -183,8 +222,8 @@
 			<div class="example">
 				<p class="ex_id">ID</p>
 				<p class="ex_img">Image</p>
-				<p class="ex_link_title">Link and title</p>
-				<p class="ex_text">Text</p>
+				<p class="ex_link_title">(Link to | upload) Image</p>
+				<p class="ex_text">Title and text</p>
 				<p class="ex_date">Date</p>
 				<p class="ex_control">Action</p>
 			</div>
@@ -217,12 +256,15 @@
 							<p class="img">
 								<img src="' .  $news_img . '">
 							</p>
-							<p class="link_title">
+							<p class="link">
 								<input type="" name="image" title="Link to photo" placeholder="Link to photo" value="' . $news_img . '" class="edit-news-image">
-								<textarea title="Title" placeholder="Title" class="edit-news-title">' . $news_title . '</textarea>
+								<input class="inputUploads" type="file" name="file">
+								
 							</p>
-							<p class="text">
+							<p class="title_text">
+									<textarea title="Title" placeholder="Title" class="edit-news-title">' . $news_title . '</textarea>
 								<textarea placeholder="Text" class="edit-news-text">' . $news_text . '</textarea>
+								
 							</p>
 							<p class="date">
 								<input type="" name="" placeholder="YYYY-MM-DD HH:MM:SS" title="Date (YYYY-MM-DD HH:MM:SS)" value="' . $news_date . '" class="edit-news-date">
@@ -573,7 +615,7 @@
 				</p>
 
 				<p class="btn">
-					<button><img src="../assets/img/arrow-down.svg"></button>
+					<button><img src="<?= $link ?>/assets/img/arrow-down.svg"></button>
 				</p>
 
 				<p>
@@ -649,7 +691,7 @@
 						</p>
 
 						<p class="btn">
-							<button><img src="../assets/img/arrow-down.svg"></button>
+							<button><img src="' . $link . '/assets/img/arrow-down.svg"></button>
 						</p>
 
 						<p>
@@ -1099,6 +1141,20 @@
 		let id = ($(this).parent().parent().attr("id")).replace('id_', '');
 		showSaveMessage('.editNews', id);
 	})
+
+	$('.editNews .inputUploads').on('change', function(){
+		var files;	
+		console.log('input is changed!')
+		files = this.files;
+		let id = ($(this).parent().parent().attr("id")).replace('id_', '');
+
+		fileName = $(".editNews #id_" + id + " .inputUploads").val().split('/').pop().split('\\').pop();
+
+		changeImageFromUpload('.editNews', id, files);
+
+		$('.editNews .link .edit-news-image').val("<?= $link?>/uploads/" + fileName);
+	});
+
 	// Сохранение новости
 	$('.edit-news-save').click(function () {
 		let id = ($(this).parent().parent().attr("id")).replace('id_', '');

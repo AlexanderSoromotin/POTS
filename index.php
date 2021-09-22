@@ -9,6 +9,7 @@
 	<title>PRINCES OF THE SPACE</title>
 	<link rel="shortcut icon" href="<?= $link ?>/assets/img/logo.png" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
 </head>
 <body>
 	

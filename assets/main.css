@@ -11,6 +11,9 @@
 body {
 	background-color: #050505;
 }
+.none {
+	text-decoration: line-through !important;
+}
 body::-webkit-scrollbar {
 	width: 5px;
 }
@@ -23,8 +26,11 @@ body::-webkit-scrollbar-thumb {
 	background-color: rgba(255, 255, 255, .9);
 	/*border-radius: 2px;*/
 }
+.inputUploads {
+	cursor: pointer;
+}
 header {
-	transition: 1s margin-top;
+	transition: .4s margin-top;
 	position: fixed;
 	/*position: relative;*/
 	top: 0;
@@ -84,12 +90,18 @@ header .menu-ul li:hover::after {
 footer {
 	padding: 0 30px 30px 30px;
 	color: #fff;
-	margin-top: -20px;
+	/*margin-top: 20px;*/
+	padding: 30px 0 20px 0;
+	/*background-color: #000;*/
+	/*background-color: #050505;*/
+	background-color: #090909;
+	position: relative	;
 }
 footer span {
 	/*display: flex;*/
 	/*align-items: center;*/
 	/*justify-content: center;*/
+	color: #fff;
 }
 footer p {
 	/*margin-top: 20px;*/
@@ -330,7 +342,7 @@ footer p img {
 	width: 40px;
 }
 .editNews .block {
-	height: 180px;
+	height: 230px;
 }
 .editNews .img {
 	width: 200px;
@@ -342,10 +354,10 @@ footer p img {
 	/*width: 100%;*/
 	/*top: 50%;*/
 }
-.editNews .link_title {
+.editNews .link {
 	flex-direction: column;
 }
-.editNews .link_title * {
+.editNews .link * {
 	display: block;
 	padding: 7px;
 	width: 400px;
@@ -353,19 +365,24 @@ footer p img {
 	border-radius: 0;
 	outline: unset;
 }
-.editNews .link_title *:focus {
+.editNews .link *:focus {
 	/*border: 1px solid #000;*/
 }
-.editNews .link_title textarea {
-	height: 73px;
-	resize: none;
-	margin-top: -1px;
+.editNews .link .inputUploads {
+
+	margin-top: 5px;
 }
-.editNews .text {
+.editNews .title_text {
+	flex-direction: column;
 	height: 100%;
 }
-.editNews .text textarea {
-	height: 100%;
+.editNews .title_text .edit-news-title {
+	height: auto;
+	margin-bottom: 5px;
+	width: 400px;
+}
+.editNews .title_text .edit-news-text {
+	height: 150px;
 	width: 400px;
 }
 .editNews .date {
@@ -870,12 +887,13 @@ footer p img {
 	margin-left: 0px;
 	transition: .1s;
 	width: 100%;
-	margin-top: 10px;
+	margin-top: 5px;
 	border: unset;
-	padding: 5px 0 0 20px;
+	padding: 0px 0 0 20px;
 	font-size: 18px;
 	text-transform: unset;
 	border-left: 0px solid #000;
+	/*border: 1px solid #000;*/
 }
 .profile-opened ul {
 	right: 0;
@@ -892,6 +910,11 @@ footer p img {
 .profile ul h3 {
 	text-align: center;
 }
+.profile .login_button {
+	display: inline-block;
+	width: 90px;
+	margin: 0 5px;
+}
 .profile p {
 	font-size: 14px;
 }
@@ -904,7 +927,7 @@ footer p img {
 	border: 1px solid #000;
 	outline: unset;
 	cursor: pointer;
-	margin-top: 60px;
+	margin-top: 0px;
 }
 .profile button:hover {
 	background-color: #000;
@@ -927,6 +950,8 @@ h1.title {
 	font-weight: 400;
 	font-size: 34px;
 	color: #fff;
+	/*background-color: #000;*/
+	background-color: #050505;
 
 	/*border: 1px solid #fff;*/
 }

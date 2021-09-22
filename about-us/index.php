@@ -108,17 +108,15 @@
 
 	<script type="text/javascript">
 		
-		let value = window.scrollY;
+		value = window.scrollY;
 		if (value > 93) {
 			$('.background').css({"margin-top" : "-93px"});
-			console.log(11111)
 		} else {
 			$('.background').css({"margin-top" : "0"});
 		}
 
 		window.addEventListener('scroll', function () {
 			let value = window.scrollY;
-			// console.log(value);
 			if (value > 93) {
 				$('.background').css({"margin-top" : "-93px"});
 			} else {
